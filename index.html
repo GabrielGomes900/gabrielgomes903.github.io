@@ -1,13 +1,47 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href="css/styles.css" rel="stylesheet">
+	<meta name="theme-color" content="#121212"/>
+	<meta name="apple-mobile-web-app-status-bar-style" content="#ff0000">
   </head>
+  
+  <style type="text/css">
+	.Avatar{position:absolute;left:10px;background:white;width:200px;height:200px;margin-top:40%; border-radius:50%;padding:10px;border-color:red;outline:none}
+	.Botao{margin-top:150%;background:#00ff00;color:#FFFFFF;font-size:60px;border:0;border-radius:10px;outline:none;width:80%;height:100px}
+	
+	body{
+width:100%;
+    height:100%;
+    background:#212121;
+}
+  </style>
+	
   <body>
-
-    <h1>My Website</h1>
-
-    <p>This is my first website</p>
-
+	<center>
+	  <div>
+	  <img style="left:0%;right:0%;top:0%;z-index:-1;position:absolute; width:110%; height:500px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQzH6nYeKluPc8fq5PmjS_OeG9C5OcCBSnVGQ&usqp=CAU">
+	  </div>
+	  <img id="avatar" class="Avatar" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQyVeR9b08dSue7VDVJUHGoIASEg45hnEdAbA&usqp=CAU">
+		
+	</center>
+	
+	<h4 style="color:white;font-size:47px;margin-top:72%;margin-left:1%;position:absolute">
+	  FÃS DO LEVELUP
+	</h4>
+	<h1 style="font-size:27px;color:#444444;margin-top:81.5%;margin-left:1%;position:absolute;orientation:horizontal">
+	  <b>GRUPO:</b>
+	</h1>
+	<div style="position:absolute;background:red;border-radius:10px;margin-top:81%;margin-left:120px"><center><h1 style="color:white;font-size:17px">privado</h1></center></div>
+	
+	<center>
+	<button id="invadir" class="Botao">INVADIR</button>
+	</center>
+	
+	<script>
+	  var INVADIR = document.getElementById('invadir').onclick=function(){
+	  
+	  window.open("https://chat.whatsapp.com/FYTt4QLY9n6BCjK4MxDdE3");
+	  };
+	</script>
   </body>
-</html>		
+</html>
